@@ -56,19 +56,19 @@ export class AppService {
         app.normalMessageCount += 1;
       }
 
-      await this.checkEasterEgg(msg.text);
+      await this.checkEasterEgg(msg);
       await this.appRepository.save(app);
       console.log(msg);
     });
   }
 
-  private async checkEasterEgg(msg: string): Promise<void> {
+  private async checkEasterEgg(msg: TelegramBot.Message): Promise<void> {
     const regexSex = /трах\w*/i;
     const regexMale = /муж\w*/i;
     const regexGo1 = /піш\w*/i;
     const regexGo2 = /піт\w*/i;
-    if (regexSex.test(msg) && (regexMale.test(msg) || regexGo1.test(msg) || regexGo2.test(msg))) {
-      await this.bot.sendAnimation(process.env.TELEGRAM_CHAT_ID, this.secretUrl);
+    if (regexSex.test(msg.text) && (regexMale.test(msg.text) || regexGo1.test(msg.text) || regexGo2.test(msg.text))) {
+      await this.bot.sendAnimation(msg.chat.id, this.secretUrl);
     }
   }
 }
