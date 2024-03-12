@@ -47,7 +47,7 @@ export class AppService {
         app.questionMessageCount = 0;
       }
 
-      app.userName = `${msg.from.first_name} ${msg.from.last_name}`;
+      app.userName = `${msg.from.first_name} ${msg.from.username ? msg.from.username : '' }`;
       const isQuestionMsg = msg.text && msg.text.includes('?');
 
       if (isQuestionMsg) {
