@@ -19,7 +19,7 @@ import { App } from './app.entity';
       entities: [App],
       database: process.env.POSTGRES_DATABASE,
       synchronize: true,
-      logging: true,
+      logging: false,
       ssl: true,
     }),
     TelegramModule.forRoot({
