@@ -9,7 +9,6 @@ import { HttpModule } from '@nestjs/axios';
 import { TwitchService } from './twitch.service';
 import { OpenaiService } from './openai.service';
 import { TelegramService } from './telegram.service';
-import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
